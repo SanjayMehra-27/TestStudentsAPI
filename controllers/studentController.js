@@ -1,22 +1,12 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const path = require('path');
-
 const fetch = require('node-fetch');
-var url = require('url');
 const router = express.Router();
-
-const testAPIurl = 'http://localhost:3000/students'
-
-
 
 // body-parser
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
-// router.get('/students/update/:id',(req,res)=>{
-//     return router.put(req,res);
-// })
 
 // GET STUDENTS LIST
 router.get('/students', async (req, res) => {
