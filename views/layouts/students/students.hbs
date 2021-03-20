@@ -3,6 +3,8 @@
 
 {{!-- Student Table --}}
 <section class="container m-5">
+
+
     <article>
         <table class="table ">
             <thead>
@@ -15,24 +17,40 @@
                 </tr>
             </thead>
             <tbody>
+
+                {{!-- Error Message --}}
+                <div class="alert alert-danger alert-dismissible fade {{show}} " role="alert">
+                    <strong>Error!</strong> {{error}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
                 <tr>
-                    <td> <button type="button" data-toggle="modal" data-target="#addStudent" class="btn btn-white border"><i class="fa fa-plus" aria-hidden="true"></i> ADD </a>
+                    <td> <button type="button" data-toggle="modal" data-target="#addStudent"
+                            class="btn btn-white border"><i class="fa fa-plus" aria-hidden="true"></i> ADD </a>
                     </td>
                 </tr>
                 {{#each student}}
                 <tr class="font-weight-bold font-italic incrementValueByOne">
 
-                    <th scope="row" ></th>
+                    <th scope="row"></th>
                     <td class="text-capitalize">{{this.name}}</td>
-                    <td class="text-lowercase"><a class="text-dark" href="mailto:{{this.email}}">{{this.email}}</a> </td>
+                    <td class="text-lowercase"><a class="text-dark" href="mailto:{{this.email}}">{{this.email}}</a>
+                    </td>
                     <td class="text-uppercase">{{this.collegeId}}</td>
-                    <td> 
-                        <a href="students/edit/{{this.id}}" class="btn  btn-outline-primary border mr-1"><i class="fa fa-pencil" aria-hidden="true"></i> EDIT</button> 
-                        <a href="students/delete/{{this.id}}" class="btn  btn-outline-danger border mr-1"><i class="fa fa-trash" aria-hidden="true"></i> DELETE</a> 
-                        <button type="button" data-toggle="modal" data-target="#readStudent{{this.id}}" class="btn btn-white border mr-1"><i class="fa fa-eye" aria-hidden="true"></i> READ</button></td>
+                    <td>
+                        <a href="students/edit/{{this.id}}" class="btn  btn-outline-primary border mr-1"><i
+                                class="fa fa-pencil" aria-hidden="true"></i> EDIT</button>
+                            <a href="students/delete/{{this.id}}" class="btn  btn-outline-danger border mr-1"><i
+                                    class="fa fa-trash" aria-hidden="true"></i> DELETE</a>
+                            <button type="button" data-toggle="modal" data-target="#readStudent{{this.id}}"
+                                class="btn btn-white border mr-1"><i class="fa fa-eye" aria-hidden="true"></i>
+                                READ</button>
+                    </td>
                 </tr>
                 {{/each}}
-                
+
 
             </tbody>
         </table>
@@ -54,26 +72,31 @@
             <div class="modal-dialog ">
                 <div class="modal-content text-center">
                     <div class="card-header ">
-            
+
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                       <div class="text-center">
-                            <h5 class="text-muted text-uppercase p-4"> <i class="fa fa-user-circle" aria-hidden="true"></i> {{this.name}}
+                        <div class="text-center">
+                            <h5 class="text-muted text-uppercase p-4"> <i class="fa fa-user-circle"
+                                    aria-hidden="true"></i> {{this.name}}
                             </h5>
-                       </div>
+                        </div>
 
                     </div>
                     <div class="modal-body">
-                        
-                      <div class="text-left font-italic shadow-lg p-4 m-2">
+
+                        <div class="text-left font-italic shadow-lg p-4 m-2">
                             <br>
-                            <h6 class="text text-muted text-uppercase"> <i class="fa fa-id-card" aria-hidden="true"></i> {{this.collegeId}} <br> <i class="fa fa-envelope" aria-hidden="true"></i> {{this.email}} <br> <i class="fa fa-phone" aria-hidden="true"></i> {{this.phone}}<br> <i class="fa fa-graduation-cap" aria-hidden="true"></i> {{this.course}} - {{this.year}} <br></h6><br>
-                           
+                            <h6 class="text text-muted text-uppercase"> <i class="fa fa-id-card" aria-hidden="true"></i>
+                                {{this.collegeId}} <br> <i class="fa fa-envelope" aria-hidden="true"></i> {{this.email}}
+                                <br> <i class="fa fa-phone" aria-hidden="true"></i> {{this.phone}}<br> <i
+                                    class="fa fa-graduation-cap" aria-hidden="true"></i> {{this.course}} - {{this.year}}
+                                <br></h6><br>
 
-                      </div>
 
-                      
+                        </div>
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -90,22 +113,23 @@
 <section>
     <article>
         <!-- Modal -->
-        <div class="modal fade" id="addStudent" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal fade" id="addStudent" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">ADD</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <form method="post" action="students" id="addStudent">
                         <div class="modal-body">
                             {{!-- //ADD FORM --}}
                             <div class="form-row m-3">
-                    
+
                                 <div class="col-6">
-                                    <input type="text" id="name" name="name" class="form-control " 
+                                    <input type="text" id="name" name="name" class="form-control "
                                         placeholder="Full-Name">
                                 </div>
                                 <div class="col-6">
@@ -119,28 +143,33 @@
                                         placeholder="Phone Number">
                                 </div>
                                 <div class="col-6">
-                                    <input type="text" id="course" name="course" class="form-control " 
+                                    <input type="text" id="course" name="course" class="form-control "
                                         placeholder="Course">
                                 </div>
                             </div>
                             <div class="form-row m-3">
                                 <div class="col-6">
-                                   <div class="form-group">
-                                      
-                                       <select class="custom-select" id="year" name="year" class="form-control" >
-                                           
-                                           <option class="font-weight-bold  text-muted"  selected value ="First Year"> First Year  </option>
-                                           <option class="font-weight-bold  text-muted" value="Second Year"> Second Year </option>
-                                           <option class="font-weight-bold  text-muted" value="Third Year"> Third Year </option>
-                                           <option  class="font-weight-bold text-muted" value="Final Year"> Final Year </option>
-                                       </select>
-                                   </div>
+                                    <div class="form-group">
+
+                                        <select class="custom-select" id="year" name="year" class="form-control">
+
+                                            <option class="font-weight-bold  text-muted" selected value="First Year">
+                                                First Year </option>
+                                            <option class="font-weight-bold  text-muted" value="Second Year"> Second
+                                                Year </option>
+                                            <option class="font-weight-bold  text-muted" value="Third Year"> Third Year
+                                            </option>
+                                            <option class="font-weight-bold text-muted" value="Final Year"> Final Year
+                                            </option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-6">
-                                    <input type="text" id="collegeId" name="collegeId" class="form-control" placeholder="CollegeID">
+                                    <input type="text" id="collegeId" name="collegeId" class="form-control"
+                                        placeholder="CollegeID">
                                 </div>
                             </div>
-                    
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -155,4 +184,5 @@
     </article>
 </section>
 
+{{!-- Student Script --}}
 <script src="../../assets/js/student.js"></script>
