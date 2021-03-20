@@ -1,0 +1,68 @@
+{{!-- Navabar --}}
+{{> header }}
+
+
+<section class="m-auto p-5">
+
+    <article class="container ">
+
+        <div class="card">
+
+            <form method="POST" action="/api/students/{{student.id}}" id="updateStudent"
+                enctype="application/x-www-form-urlencoded">
+                <div class="card-body">
+                    {{!-- //UPADATE FORM --}}
+                    <div class="form-row m-3">
+
+                        {{!-- hidden method --}}
+                        <input type="hidden" id="id" name="id" value="{{student.id}}" />
+                        <input type="hidden" id="collegeId" name="collegeId" value="{{student.collegeId}}" />
+
+                        <div class="col-6">
+                            <input type="text" id="name" name="name" class="form-control text-uppercase"
+                                value="{{student.name}}" placeholder="Full Name">
+                        </div>
+                        <div class="col-6">
+                            <input type="email" id="email" name="email" class="form-control" value="{{student.email}}"
+                                placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-row m-3">
+                        <div class="col-6">
+                            <input type="text" id="phone" name="phone" class="form-control" value="{{student.phone}}"
+                                placeholder="Phone Number">
+                        </div>
+                        <div class="col-6">
+                            <input type="text" id="course" name="course" class="form-control text-uppercase"
+                                value="{{student.course}}" placeholder="Course">
+                        </div>
+                    </div>
+                    <div class="form-row m-3">
+                        <div class="col-6">
+                            <div class="form-group">
+
+                                <select class="custom-select" id="year" name="year" class="form-control">
+
+                                    <option class="font-weight-bold  text-muted" selected value="First Year">
+                                        {{student.year}} </option>
+                                    <option class="font-weight-bold  text-muted" value="Second Year"> Second Year
+                                    </option>
+                                    <option class="font-weight-bold  text-muted" value="Third Year"> Third Year
+                                    </option>
+                                    <option class="font-weight-bold text-muted" value="Final Year"> Final Year </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">UPDATE</button>
+                </div>
+            </form>
+        </div>
+
+    </article>
+
+</section>
