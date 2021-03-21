@@ -26,7 +26,11 @@ router.get('/students', async (req, res) => {
         })
         .catch((err) => {
             if (err.code === 'ECONNREFUSED') {
+<<<<<<< HEAD
                 console.log(err)
+=======
+                console.err(err)
+>>>>>>> 22b3adc16ae8a2a6f5cc454e12b4a246e7e2934f
                 return res.render('./layouts/students/students.hbs', {
                     error: ' Some Error Occurred During The Fetching Students Records.',
                     show: 'show'
@@ -54,7 +58,11 @@ router.get('/students/edit/:id', async (req, res) => {
     return res.render('./layouts/students/edit.hbs', {
         student: data,
     })
+<<<<<<< HEAD
 });
+=======
+})
+>>>>>>> 22b3adc16ae8a2a6f5cc454e12b4a246e7e2934f
 
 // POST : Create Student
 router.post('/students', async (req, res) => {
@@ -86,7 +94,10 @@ router.post('/students/:id', async (req, res) => {
         .then((res) => res.json())
         .then((data) => {
             console.log(data)
+<<<<<<< HEAD
            
+=======
+>>>>>>> 22b3adc16ae8a2a6f5cc454e12b4a246e7e2934f
             return res.redirect('http://localhost:8000/api/students');
         })
         .catch((err) => { console.log(err) });
