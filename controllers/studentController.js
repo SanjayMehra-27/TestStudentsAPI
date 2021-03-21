@@ -67,7 +67,6 @@ router.post('/students', async (req, res) => {
         .then((res) => res.json())
         .then((data) => {
             console.log(data)
-
             return res.redirect('students');
 
         })
